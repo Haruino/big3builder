@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 筋トレ・BIG3プログラム生成アプリ
 
-## Getting Started
+## 目的
+- 筋トレBIG3プログラムを、生成AIを利用して生成し、記録更新を目指す。
+- 生成したプログラムはxlsxで出力可能（追加機能で検討）
 
-First, run the development server:
+## 対象
+- BIG3にコミットしているトレーニー
+- ある程度知識、経験のあるトレーニー
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## スコープ
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### やる
+- Big3向けの筋力プログラム生成（固定フォーマット）
+- 最小入力フォーム
+- 生成結果の表示（週→日→種目）
+- Googleスプレッドシート作成＆Drive保存
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### やらない
+- 筋肥大/減量/健康などの多目的最適化
+- 種目プリセットの大量カスタム
+- 栄養/体重管理連動
+- 進捗実績入力→自動再設計（V2以降）
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 技術スタック
 
-## Learn More
+### フロントエンド
+- TypeScript
+- Next.js16(App router)
+- React 19.2
+- react-hook-form
+- zod
+- tailwindcss
+- swr
+- shadcn
+- axios
 
-To learn more about Next.js, take a look at the following resources:
+### バックエンド/DB
+- Route Handlers
+- drizzle ORM
+- postgreSQL
+- Supabase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 認証
+- Auth.js(プロバイダ: Googleログイン)
