@@ -1,0 +1,11 @@
+.next
+dist
+node_modules
+public
+package-lock.json
+components.json
+next-env.d.ts
+tsconfig.json.eslintrc
+.prettierrc
+prettier.config.mjs
+eslint.config.mjs
